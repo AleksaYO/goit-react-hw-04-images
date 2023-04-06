@@ -7,7 +7,7 @@ import { ColorRing } from 'react-loader-spinner';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
 export function ImageGallery({ value }) {
-  const [gallery, setGallery] = useState(null);
+  const [gallery, setGallery] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(false);
   const [oldValue, setOldValue] = useState(value);
@@ -57,7 +57,7 @@ export function ImageGallery({ value }) {
   };
 
   return (
-    gallery && (
+    gallery.length && (
       <div className={css.box}>
         <ul className={css.ImageGallery}>
           {gallery.map(item => {
