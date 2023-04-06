@@ -1,16 +1,18 @@
-export const App = () => {
+import { useState } from 'react';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Searchbar } from './Searchbar/Searchbar';
+
+export function App() {
+  const [value, setValue] = useState();
+
+  const onGetValue = value => {
+    setValue(value);
+  };
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Searchbar onGetValue={onGetValue} />
+      <ImageGallery value={value} />
     </div>
   );
-};
+}
